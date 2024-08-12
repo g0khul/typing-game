@@ -3,7 +3,11 @@
   <div class="columns is-centered">
     <div class="box column is-one-third">
       <p class="has-text-centered">
-        {{ getSentence() }}
+        <span
+          [class]="compare(letter, enteredText[i])"
+          *ngFor="let letter of sentence.split(''); let i = index"
+          >{{ letter }}</span
+        >
       </p>
 
       <div class="field">

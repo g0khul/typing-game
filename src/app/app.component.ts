@@ -14,20 +14,20 @@ export class AppComponent {
   sentence = lorem.sentence();
   enteredText = '';
 
-  getSentence() {
-    return this.sentence;
-  }
-
   onInputChange(event: Event) {
     const eventValue = event.target as HTMLInputElement;
     this.enteredText = eventValue.value;
   }
 
+  compare(randomLetter: string, enteredLetter: string) {
+    if (!enteredLetter) {
+      return 'pending';
+    }
+
+    return randomLetter === enteredLetter ? 'correct' : 'incorrect';
+  }
+
   isGameOver() {
-    console.log(
-      'called is game over----------------',
-      this.sentence === this.enteredText
-    );
     return this.sentence === this.enteredText;
   }
 }
